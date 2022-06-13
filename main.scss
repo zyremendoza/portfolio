@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+//Variables
+$main-font: 'Poppins', sans-serif;
+$title-font: 'DM Serif Display', serif;
+$logo: 'Cormorant Garamond', serif;
+$big-heading: clamp(38px, 8vw, 76px);
+$title-heading: clamp(32px, 7vw, 44px);
+$paragraph: 16px;
+$bold:600;
+$regular: 400;
+$thin: 200;
+
+*{
+    padding: 0;
+    margin: 0;
+    cursor: none;
+    font-family: $main-font;
+
+    @media (max-width:400) {
+        cursor:alias; 
+    }
+    
+    a{
+        text-decoration: none;
+    }    
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+
+
+}
+
+html{
+    --color:transparent;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    transition: background 1s ease-in-out;
+    overflow-x:hidden;
+}
+
+
+//center div wrapper
+.section-container{
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+}
+
+  
+.linkAnimation{
+    opacity: 0;
+}
+//all buttons
+.button{
+    border-radius: 5px;
+    transition: .2s;
+    width: 20%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    z-index: 100;
+    background-color: black;
+
+    @media (max-width:720px) {
+      width: 120px;
+    }
+
+    a{
+        color: white;
+        font-size: 20px;
+        font-weight: $thin;
+    }
+
+    
+}
+
+    
+//page loader
+.loader-wrapper{
+    margin: 0px;
+    position: fixed;
+	background: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+    width: 100%;
+    z-index: 999999;
+    overflow-x: hidden;
+}
+
+.loader-container {
+    font-family: $logo;
+    text-decoration: none;
+    font-size: 60px;
+    padding: 0 .3em;
+    font-family: $logo;
+    animation-name:border;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-duration:1s;
+    transition: 2s;
+      .loader {
+        text-decoration: none;
+        font-family: $logo;
+        color: white;
+        animation-name:glower;
+        animation-duration:1s;
+        background-color: black;
+        animation-iteration-count:infinite;
+        animation-direction:alternate;
+        @keyframes glower{
+            from{text-shadow:0px 0px 5px white,0px 0px 5px white;}
+            to{text-shadow:0px 0px 20px white,0px 0px 20px white;}
+          }
+      }
+@keyframes border {
+    from{border: 1px white solid; transition: 1s;}
+            to{border: black solid 1px; transition: 1s;}
+}
+}
+//first page------------------------------------------------------
+
+//landing page
+#landing-page{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5em;
+    position: relative;
+    overflow-x: hidden;
+    @media (max-width:720px) {
+        padding: 0;
+    }
+
+    .landing-page-content{
+        width: 100%;
+        color: black;
+        padding:0 1.5em;
+
+        #landing-page-button{
+            opacity: 0;
+        }
+
+
+        @media (max-width:1280px) {
+            padding-left: 2.5em;
+        }
+
+        @media (max-width:720px) {
+            margin-top: 128px;
+            padding: 0 2.5em;
+        }
+
+
+        h1{
+            font-weight: $regular;
+            font-size: $big-heading;
+            font-family: $main-font;
+            opacity: 0;
+        }
+
+        p{
+            font-size: 24px;
+            font-family: $main-font;
+            opacity: 0;
+        }
+        .socmed-icon-mobile{
+            width: 100%;
+            display: none;
+            margin-top: 30px;
+            justify-content: space-between;
+            @media (max-width:720px) {
+                display: block;
+            }
+            
+            i{
+                color: black;
+                padding-right: 1em;
+            }
+        }
+
+    }
+
+}
+
+.landing-page-container{
+    background-color: white;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    .dots1{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 50px;
+    }
+
+    .dots2{
+        position: absolute;
+        left: 10%;
+        top: 0;
+        z-index: 9999;
+        width: 50px;
+    }
+
+    .dots3{
+        position: absolute;
+        left: 10%;
+        bottom: 0;
+        z-index: 9999;
+        width: 50px;
+    }
+    
+    .arrow-down{
+        width: 100%;
+        margin: 0 auto;
+        opacity: 0;
+        position: absolute;
+        bottom: 10px;
+        display: block;
+        align-items: center;
+        text-align: center;
+        -webkit-animation: action 1s infinite  alternate;
+        animation: action 1s infinite  alternate;
+        p{
+            padding-bottom: 10px;
+        }
+
+        img{
+            width: 30px;
+        }
+    }
+
+    @-webkit-keyframes action {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+
+    @keyframes action {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    #landing-img{
+        position: absolute;
+        top: 30%;
+        right: -100px;
+        width: 900px;
+        z-index: -10;
+        transform: scaleX(-1);
+        opacity: 0;
+        
+
+        @media (max-width: 1120px) {
+            width: 80vw;
+            top: 40%;
+        }
+
+        
+        @media (max-width: 720px) {
+            width: 500px;
+            right: -100px;
+        }
+
+        @media (max-width: 420px) {
+            display: none;
+            visibility: hidden;
+        }
+    }
+    
+    #landing-page-button{
+        font-family:$main-font;
+        font-weight: $regular;
+    }
+}
+
+//second page -------------------
+
+.about-container{
+    overflow-x: hidden;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    align-items:center;
+    position: relative;
+
+    i{
+        color: white;
+    }
+    .dots4{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 50px;
+        z-index: -9999;
+        @media (max-width:1000px) {
+            width: 8vw;
+        }
+    }
+
+    .dots5{
+        position: absolute;
+        right: 0;
+        top: 70%;
+        width: 70px;
+        transform: rotate(90deg);
+        @media (max-width:1000px) {
+            width: 8vw;
+        }
+
+    }
+
+    .dots6{
+        position: absolute;
+        left: 70%;
+        bottom: 0;
+        width: 50px;
+        @media (max-width:1000px) {
+            width: 8vw;
+        }
+    }
+}
+
+.about-texts{
+    padding: 0 2.5em;
+    text-align: justify;
+  
+
+        .about-title{
+            position: relative;
+            margin-bottom: 30px;
+            ::after{
+                content: '';
+                position: absolute;
+                height: 5px;
+                width: 100px;
+                bottom:0;
+                left: 0;
+                background-color: black;
+            }
+
+            h1{
+                font-size: $title-heading;
+                font-weight: $regular;
+            }
+        }
+
+        #resume-dl{
+            padding-left: 5px;
+            font-size: 16px;
+         }
+
+
+
+        .skill-list{
+            display: grid;
+            width: 100%;
+            margin-top: 10px;
+            grid-template-columns: repeat(3, 2fr);
+            column-gap: 5px;
+            
+            .skill-item{
+                font-weight: bold;
+            }
+          }
+    
+}
+
+
+//Third page -------------------
+
+
+.project-container{
+    overflow-x: hidden;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items:center;
+    position: relative;
+    overflow:hidden;
+    background-color: white;
+}
+
+
+#project-section{
+    height: 50vh;
+    text-align: center;
+    width: 1100px;
+    align-items: center;
+    display: flex;
+    .project-title{
+        width: 50%;
+        margin: 0 auto;
+        position: relative;
+        h1{
+            font-size: clamp(38px, 8vw, 76px);
+            color: black;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hand1{
+            position: absolute;
+            left: -150px;
+            bottom:-150px;
+            width:  300px;
+            @media (max-width:1000px) {
+                width:200px;
+            }
+
+          
+        }
+
+        .hand2{
+            position: absolute;
+            top: -200px;
+            right: -150px;
+            width:  300px;
+            @media (max-width:1000px) {
+                width:200px
+            }
+        }
+    }
+}
+
+.project-flex{
+    width: 100%;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    position: relative;
+
+    @media (max-width:720px) {
+        flex-direction: column;
+        align-items:flex-start;
+        padding: 1.5em;
+    }
+}
+
+.phones{
+     width: 400px;
+     height:500px;
+
+     @media (max-width:720px) {
+       width: 200px;
+       height:300px;
+       margin-top: 50px;
+    }
+}
+
+
+.project-buttons{
+    color:white;
+    padding: .5em;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100px;
+    background-color: black;
+    font-weight: $thin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-buttons:hover{
+    text-decoration: underline;
+}
+.project-texts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width:720px) {
+        padding-right: 2em;
+        padding-left: 1em;
+     }
+}
+.project-flex:nth-child(1){
+    @media (max-width:720px) {
+        flex-direction: column-reverse;
+     }
+}
+
+.project-flex:nth-child(2){
+    justify-content: space-between;
+    @media (max-width:720px) {
+        justify-content: center;
+     }
+}
+
+.project-flex:nth-child(3){
+    justify-content: space-around;
+    @media (max-width:720px) {
+        flex-direction: column-reverse;
+        justify-content: center;
+     }
+    img{
+        width:350px;
+        height: 350px;
+
+        @media (max-width:720px) {
+            width: 200px;
+            height:300px;
+         }
+    }
+}
+
+.project-flex:nth-child(4){
+    justify-content: space-around;
+
+    @media (max-width:720px) {
+        justify-content: center;
+      }
+    img{
+        width:350px;
+        height: 350px;
+        @media (max-width:720px) {
+            width: 200px;
+            height:300px;
+         }
+    }
+}
+
+
+//contact section
+.contact-container{
+    width: 100%;
+    height: 110vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    img{
+        width: 400px;
+
+        @media (max-width:720px) {
+            width: 300px;
+        }
+    }
+ 
+    .contact-content{
+        text-align: center;
+        padding: 1.5em;
+        
+        h1{
+            font-size: $big-heading;
+        }
+        .contact-button{
+            margin: 50px auto;
+        }
+    }
+}
+
+footer{
+    text-align: center;
+    p{
+        font-weight: 300;
+    }
+}
+
+  
+
+  progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border: none;
+    background: transparent;
+    z-index: 2000;
+  }
+
+progress::-webkit-progress-bar {
+    background: transparent;
+}
+progress::-webkit-progress-value {
+    background: #333;
+    background-attachment: fixed;
+}
+progress::-moz-progress-bar {
+    background: #333;
+    background-attachment: fixed;
+}
+
+/* line through hover (span only) */
+
+
+
+b{
+    opacity: 0;
+}
+
+
+  //fixed socmed icons
+
+  .fixed-socmed{
+    width: 40px;
+    position: fixed;
+    top: 50%;
+    height: 400px;
+    left: 40px;
+    right: auto;
+    z-index: 19999999;
+    opacity: 0;
+    
+    ::after{
+        content: '';
+        display: block;
+        width: 1px;
+        position: absolute;
+        height: 130px;
+        bottom: 0;
+        left: 5px;
+        background-color: black;
+    }
+
+    .socmed-list{
+        display: flex;
+        flex-direction: column;
+        a{
+            padding: 1.3em 0;
+            color: black;
+        }
+
+        .socmed-item{
+            color: black;
+            font-size: 20px;
+            display:block; 
+            transition:all linear 0.2s ;
+        }
+    }
+    @media (max-width:1280px) {
+        left: 25px;
+    }
+
+    @media (max-width:720px) {
+        display: none;
+    }
+    
+  }
+

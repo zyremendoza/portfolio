@@ -1,0 +1,30 @@
+.custom-cursor {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: -webkit-transform 350ms ease;
+  transition: -webkit-transform 350ms ease;
+  transition: transform 350ms ease;
+  transition: transform 350ms ease, -webkit-transform 350ms ease;
+  -webkit-transform: translate(-50%, -50%) scale(0.3);
+          transform: translate(-50%, -50%) scale(0.3);
+  z-index: 99999999999999;
+}
+
+@media (max-width: 400px) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+.custom-cursor--link {
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  z-index: 99999999999999;
+}
+/*# sourceMappingURL=cursor.css.map */
